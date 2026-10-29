@@ -58,6 +58,37 @@ export interface ContactSubmissionResult {
 }
 
 /**
+ * Universal server environment resolver across Node.js, Vercel Serverless, and Nitro runtimes.
+ */
+export function getServerEnv(key: string): string | undefined {
+  if (typeof process !== "undefined" && process?.env && typeof process.env[key] === "string") {
+    const val = process.env[key]?.trim();
+    if (val) return val;
+  }
+  // @ts-expect-error globalThis fallback
+  if (typeof globalThis !== "undefined" && typeof globalThis[key] === "string") {
+    // @ts-expect-error globalThis fallback
+    const val = (globalThis[key] as string).trim();
+    if (val) return val;
+  }
+  try {
+    // @ts-expect-error import.meta.env fallback
+    if (
+      typeof import.meta !== "undefined" &&
+      import.meta?.env &&
+      typeof import.meta.env[key] === "string"
+    ) {
+      // @ts-expect-error import.meta.env fallback
+      const val = import.meta.env[key]?.trim();
+      if (val) return val;
+    }
+  } catch {
+    // ignore
+  }
+  return undefined;
+}
+
+/**
  * Format timestamp in both IST (Asia/Kolkata) and UTC.
  */
 export function formatSubmissionTimestamps(date: Date = new Date()): {
@@ -318,16 +349,16 @@ export async function processContactMessage(
   }
 
   const destinationEmail =
-    process.env.CONTACT_EMAIL?.trim() ||
-    process.env.CONTACT_DESTINATION_EMAIL?.trim() ||
+    getServerEnv("CONTACT_EMAIL") ||
+    getServerEnv("CONTACT_DESTINATION_EMAIL") ||
     "shivayx07@gmail.com";
 
   const fromEmail =
-    process.env.CONTACT_FROM_EMAIL?.trim() ||
-    process.env.RESEND_FROM_EMAIL?.trim() ||
+    getServerEnv("CONTACT_FROM_EMAIL") ||
+    getServerEnv("RESEND_FROM_EMAIL") ||
     "Syadverse Contact <onboarding@resend.dev>";
 
-  const resendApiKey = process.env.RESEND_API_KEY?.trim();
+  const resendApiKey = getServerEnv("RESEND_API_KEY") || getServerEnv("VITE_RESEND_API_KEY");
 
   // 4. Dispatch via Resend API if API key is configured
   if (resendApiKey) {
@@ -405,7 +436,7 @@ export async function processContactMessage(
 
   // 5. Explicit check when RESEND_API_KEY is not configured:
   // In automated test runs (VITEST or ALLOW_DEV_CONTACT_MOCK === "true"), permit mock simulation.
-  if (process.env.ALLOW_DEV_CONTACT_MOCK === "true" || process.env.VITEST === "true") {
+  if (getServerEnv("ALLOW_DEV_CONTACT_MOCK") === "true" || getServerEnv("VITEST") === "true") {
     console.info("[Syadverse Contact Form Received — Test/Dev Simulation Pipeline]", {
       name: data.name,
       email: data.email,
