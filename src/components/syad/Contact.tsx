@@ -148,20 +148,20 @@ export function Contact() {
         setSubmissionStatus("success");
         setStatusMessage(
           response.message ||
-            "Your message has been submitted successfully. Thank you for reaching out — I'll be able to review your inquiry.",
+            "Message sent successfully! Thank you for reaching out. I'll get back to you as soon as possible.",
         );
       } else {
         setSubmissionStatus("error");
         setStatusMessage(
           response.error ||
-            "Your message could not be submitted. Please try again or contact me directly by email at shivayx07@gmail.com.",
+            "We couldn't send your message right now. Please try again in a moment, or contact Shiva directly at shivayx07@gmail.com.",
         );
       }
     } catch (err) {
       console.error("[Contact Form Submit Error]", err);
       setSubmissionStatus("error");
       setStatusMessage(
-        "A network error prevented message transmission. Please try again or write directly to shivayx07@gmail.com.",
+        "A network error prevented message transmission. Please try again in a moment or write directly to shivayx07@gmail.com.",
       );
     }
   };
@@ -478,12 +478,13 @@ export function Contact() {
                         type="text"
                         autoComplete="name"
                         required
+                        disabled={submissionStatus === "submitting"}
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="e.g. Dr. Jane Smith"
                         aria-invalid={!!fieldErrors.name}
                         aria-describedby={fieldErrors.name ? "name-error" : undefined}
-                        className={`mt-2 w-full rounded-xl border bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:outline-none focus:ring-1 ${
+                        className={`mt-2 w-full rounded-xl border bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:outline-none focus:ring-1 disabled:opacity-60 disabled:cursor-not-allowed ${
                           fieldErrors.name
                             ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500"
                             : "border-[#5D6C8C]/40 focus:border-cyan focus:ring-cyan"
@@ -510,12 +511,13 @@ export function Contact() {
                         type="email"
                         autoComplete="email"
                         required
+                        disabled={submissionStatus === "submitting"}
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="e.g. name@company.org"
                         aria-invalid={!!fieldErrors.email}
                         aria-describedby={fieldErrors.email ? "email-error" : undefined}
-                        className={`mt-2 w-full rounded-xl border bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:outline-none focus:ring-1 ${
+                        className={`mt-2 w-full rounded-xl border bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:outline-none focus:ring-1 disabled:opacity-60 disabled:cursor-not-allowed ${
                           fieldErrors.email
                             ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500"
                             : "border-[#5D6C8C]/40 focus:border-cyan focus:ring-cyan"
@@ -543,9 +545,10 @@ export function Contact() {
                       value={formData.reason}
                       onChange={handleInputChange}
                       required
+                      disabled={submissionStatus === "submitting"}
                       aria-invalid={!!fieldErrors.reason}
                       aria-describedby={fieldErrors.reason ? "reason-error" : undefined}
-                      className="mt-2 w-full rounded-xl border border-[#5D6C8C]/40 bg-[#090A0D]/85 px-4 py-3 text-sm text-[#F2E0DC] transition-all duration-200 focus:border-cyan focus:outline-none focus:ring-1 focus:ring-cyan"
+                      className="mt-2 w-full rounded-xl border border-[#5D6C8C]/40 bg-[#090A0D]/85 px-4 py-3 text-sm text-[#F2E0DC] transition-all duration-200 focus:border-cyan focus:outline-none focus:ring-1 focus:ring-cyan disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {contactReasons.map((reasonOption) => (
                         <option
@@ -577,10 +580,11 @@ export function Contact() {
                         id="contact-subject"
                         name="subject"
                         type="text"
+                        disabled={submissionStatus === "submitting"}
                         value={formData.subject}
                         onChange={handleInputChange}
                         placeholder="Brief summary of your inquiry..."
-                        className="mt-2 w-full rounded-xl border border-[#5D6C8C]/40 bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:border-cyan focus:outline-none focus:ring-1 focus:ring-cyan"
+                        className="mt-2 w-full rounded-xl border border-[#5D6C8C]/40 bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:border-cyan focus:outline-none focus:ring-1 focus:ring-cyan disabled:opacity-60 disabled:cursor-not-allowed"
                       />
                     </div>
                   )}
@@ -607,12 +611,13 @@ export function Contact() {
                       name="message"
                       rows={5}
                       required
+                      disabled={submissionStatus === "submitting"}
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Tell me about your project, research inquiry, role, or ideas..."
                       aria-invalid={!!fieldErrors.message}
                       aria-describedby={fieldErrors.message ? "message-error" : undefined}
-                      className={`mt-2 w-full rounded-xl border bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:outline-none focus:ring-1 resize-y min-h-[120px] ${
+                      className={`mt-2 w-full rounded-xl border bg-[#090A0D]/70 px-4 py-3 text-sm text-[#F2E0DC] placeholder:text-[#5D6C8C] transition-all duration-200 focus:outline-none focus:ring-1 resize-y min-h-[120px] disabled:opacity-60 disabled:cursor-not-allowed ${
                         fieldErrors.message
                           ? "border-rose-500 focus:border-rose-500 focus:ring-rose-500"
                           : "border-[#5D6C8C]/40 focus:border-cyan focus:ring-cyan"
@@ -629,6 +634,7 @@ export function Contact() {
                   {submissionStatus === "error" && statusMessage && (
                     <div
                       role="alert"
+                      aria-live="polite"
                       className="flex items-start gap-3 rounded-xl border border-rose-500/30 bg-rose-950/30 p-4 text-xs md:text-sm text-rose-200 animate-in fade-in"
                     >
                       <AlertCircle size={18} className="mt-0.5 shrink-0 text-rose-400" />
