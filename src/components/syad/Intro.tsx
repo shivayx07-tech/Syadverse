@@ -120,7 +120,7 @@ export function Intro({ onEnter }: IntroProps) {
       }`}
     >
       {/* Subtle, accessible Skip Intro control */}
-      <div className="absolute top-6 right-6 md:top-8 md:right-8 z-20">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 z-20">
         <Button
           variant="ghost"
           onClick={skip}

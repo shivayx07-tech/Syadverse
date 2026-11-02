@@ -185,7 +185,7 @@ export function Contact() {
   const isCustomSubjectVisible = formData.reason === "Other";
 
   return (
-    <section id="contact" className="relative px-6 py-28 md:py-40 overflow-hidden">
+    <section id="contact" className="relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden">
       {/* Background ambient cosmic glow */}
       <div
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-40"
@@ -394,7 +394,7 @@ export function Contact() {
 
           {/* ── RIGHT COLUMN — CONTACT FORM ── */}
           <Reveal className="w-full">
-            <div className="rounded-3xl border border-[#5D6C8C]/30 bg-[#151626]/85 p-7 sm:p-10 backdrop-blur-xl shadow-2xl relative">
+            <div className="rounded-3xl border border-[#5D6C8C]/30 bg-[#151626]/85 p-5 sm:p-8 md:p-10 backdrop-blur-xl shadow-2xl relative">
               <div className="mb-8">
                 <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-cyan">
                   <Sparkles size={13} />
@@ -710,7 +710,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#5D6C8C]/20 bg-[#090A0D] px-6 py-12 md:py-16">
+    <footer className="border-t border-[#5D6C8C]/20 bg-[#090A0D] px-4 sm:px-6 py-10 md:py-16">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-end md:justify-between">
         <div className="max-w-md">
           <p className="wordmark text-3xl font-bold tracking-tight text-[#F2E0DC]">SYADVERSE</p>
@@ -768,7 +768,7 @@ export function Footer() {
             )}
           </div>
 
-          <div className="flex items-center gap-4 text-xs text-[#8E95A8]">
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-[#8E95A8] w-full">
             <span>© {new Date().getFullYear()} Shiva Yadav · Syadverse. All rights reserved.</span>
             <button
               type="button"

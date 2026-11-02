@@ -49,11 +49,11 @@ export function ExperienceCard({ mission }: ExperienceCardProps) {
         </div>
 
         {/* Content Area */}
-        <div className="flex flex-1 flex-col justify-between p-6">
-          <div>
+        <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 md:p-6 min-w-0">
+          <div className="min-w-0">
             {/* Header Row: Organization, Badges & Date */}
-            <div className="flex items-center justify-between gap-2 border-b border-border/20 pb-2.5">
-              <div className="flex items-center gap-2 truncate">
+            <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 border-b border-border/20 pb-2.5 min-w-0">
+              <div className="flex min-w-0 items-center gap-2">
                 {mission.hideCoverOverlays && (
                   <span className="shrink-0 rounded border border-border/40 bg-surface-2 px-1.5 py-0.5 font-mono text-[9px] font-semibold tracking-wider text-foreground">
                     {mission.missionNumber}
@@ -63,7 +63,7 @@ export function ExperienceCard({ mission }: ExperienceCardProps) {
                   {mission.organization}
                 </span>
               </div>
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
                 {mission.hideCoverOverlays && (
                   <span
                     className="rounded-full border px-2 py-0.5 font-mono text-[9px] font-medium"
@@ -83,28 +83,28 @@ export function ExperienceCard({ mission }: ExperienceCardProps) {
             </div>
 
             {/* Title & Role */}
-            <h3 className="mt-3 font-display text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+            <h3 className="mt-3 font-display text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors break-words">
               {mission.title}
             </h3>
 
             {mission.role && mission.role !== mission.title && (
-              <p className="mt-1 font-mono text-xs text-accent">{mission.role}</p>
+              <p className="mt-1 font-mono text-xs text-accent break-words">{mission.role}</p>
             )}
 
             {mission.researchAssociation && (
-              <p className="mt-1 font-mono text-xs text-dim">
+              <p className="mt-1 font-mono text-xs text-dim break-words">
                 Association: <span className="text-foreground">{mission.researchAssociation}</span>
               </p>
             )}
 
             {/* Short Factual Description */}
-            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground break-words">
               {mission.shortDescription}
             </p>
           </div>
 
           {/* Bottom Bar: Indicators & Action Indicator */}
-          <div className="mt-6 flex items-center justify-between border-t border-border/20 pt-4">
+          <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-border/20 pt-3.5 sm:pt-4">
             {/* Indicators */}
             <div className="flex items-center gap-2 font-mono text-[11px] text-dim">
               {hasGallery && (

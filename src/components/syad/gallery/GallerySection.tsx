@@ -44,7 +44,7 @@ export function GallerySection() {
   };
 
   return (
-    <section id="gallery" className="relative px-6 py-24 md:py-36 overflow-hidden">
+    <section id="gallery" className="relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden">
       {/* Background ambient lighting accents */}
       <div className="pointer-events-none absolute left-1/3 top-1/4 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-[#5D6C8C]/5 blur-[160px]" />
       <div className="pointer-events-none absolute right-1/4 bottom-1/3 h-[500px] w-[700px] rounded-full bg-[#D9BACB]/5 blur-[150px]" />

@@ -25,7 +25,7 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
           aria-hidden="true"
         />
 
-        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 md:p-10 items-center">
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 p-4 sm:p-7 md:p-10 items-center">
           {/* LEFT COLUMN: Project Briefing & Metadata (5 cols on desktop) */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             <div className="space-y-4">

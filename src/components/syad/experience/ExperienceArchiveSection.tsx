@@ -11,10 +11,10 @@ export function ExperienceArchiveSection() {
   }, [selectedCategory]);
 
   return (
-    <section id="experience" className="relative px-6 py-24 md:py-36">
+    <section id="experience" className="relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden">
       {/* Subtle ambient background glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/4 -translate-x-1/2 h-96 w-[80vw] max-w-5xl rounded-full opacity-20 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-1/4 -translate-x-1/2 h-96 w-[min(80vw,64rem)] max-w-5xl rounded-full opacity-20 blur-3xl"
         style={{
           background: "radial-gradient(ellipse at center, var(--violet) 0%, transparent 70%)",
         }}
@@ -65,14 +65,14 @@ export function ExperienceArchiveSection() {
         </div>
 
         {/* Experience Cards Grid */}
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {filteredMissions.map((mission) => (
             <ExperienceCard key={mission.id} mission={mission} />
           ))}
         </div>
 
         {/* Bottom Archival Footnote */}
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-border/30 bg-surface/30 px-6 py-4 text-xs text-dim">
+        <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-border/30 bg-surface/30 px-4 sm:px-6 py-4 text-xs text-dim">
           <div className="flex items-center gap-2 font-mono">
             <span className="h-2 w-2 rounded-full bg-cyan/70 animate-pulse" />
             <span>{experienceMissions.length} ARCHIVAL MISSIONS REGISTERED</span>

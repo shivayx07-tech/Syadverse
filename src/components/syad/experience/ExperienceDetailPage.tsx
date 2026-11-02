@@ -54,7 +54,7 @@ export function ExperienceDetailPage({ mission }: ExperienceDetailPageProps) {
 
       {/* Top Navigation Bar */}
       <header className="sticky top-0 z-40 border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4">
           <Link
             to="/"
             hash="experience"
@@ -85,7 +85,7 @@ export function ExperienceDetailPage({ mission }: ExperienceDetailPageProps) {
       </header>
 
       {/* Main Container */}
-      <main className="relative mx-auto max-w-5xl px-6 py-12 md:py-20">
+      <main className="relative mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 md:py-20 min-w-0">
         {/* A. EXPERIENCE HERO */}
         <section aria-labelledby="mission-title" className="space-y-8">
           {/* Metadata Badges */}
@@ -117,49 +117,49 @@ export function ExperienceDetailPage({ mission }: ExperienceDetailPageProps) {
           </div>
 
           {/* Key Facts Ribbon */}
-          <div className="grid gap-4 rounded-xl border border-border/40 bg-surface/40 p-4 sm:grid-cols-3 sm:p-5">
+          <div className="grid gap-3 sm:gap-4 rounded-xl border border-border/40 bg-surface/40 p-3.5 sm:p-5 sm:grid-cols-3">
             {mission.role && (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 min-w-0">
                 <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-surface-2 text-dim">
                   <UserCheck size={16} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="font-mono text-[10px] uppercase text-dim">Official Role</p>
-                  <p className="text-xs font-semibold text-foreground">{mission.role}</p>
+                  <p className="text-xs font-semibold text-foreground truncate">{mission.role}</p>
                 </div>
               </div>
             )}
 
             {dateDisplay && (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 min-w-0">
                 <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-surface-2 text-dim">
                   <Calendar size={16} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="font-mono text-[10px] uppercase text-dim">Duration / Timeline</p>
-                  <p className="text-xs font-semibold text-foreground">{dateDisplay}</p>
+                  <p className="text-xs font-semibold text-foreground truncate">{dateDisplay}</p>
                 </div>
               </div>
             )}
 
             {mission.location ? (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 min-w-0">
                 <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-surface-2 text-dim">
                   <MapPin size={16} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="font-mono text-[10px] uppercase text-dim">Location</p>
-                  <p className="text-xs font-semibold text-foreground">{mission.location}</p>
+                  <p className="text-xs font-semibold text-foreground truncate">{mission.location}</p>
                 </div>
               </div>
             ) : (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 min-w-0">
                 <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-surface-2 text-dim">
                   <Building2 size={16} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="font-mono text-[10px] uppercase text-dim">Category</p>
-                  <p className="text-xs font-semibold text-foreground">{mission.category}</p>
+                  <p className="text-xs font-semibold text-foreground truncate">{mission.category}</p>
                 </div>
               </div>
             )}
@@ -322,10 +322,10 @@ export function ExperienceDetailPage({ mission }: ExperienceDetailPageProps) {
                   >
                     {/* Image canvas with neutral dark background — 100% full photograph, zero cropping */}
                     <div
-                      className={`relative flex w-full items-center justify-center overflow-hidden bg-[#0a0b12] p-4 transition-colors group-hover:bg-[#07080e] ${
+                      className={`relative flex w-full items-center justify-center overflow-hidden bg-[#0a0b12] p-3 sm:p-4 transition-colors group-hover:bg-[#07080e] ${
                         isWide
-                          ? "h-[340px] sm:h-[420px] md:h-[500px]"
-                          : "h-[380px] sm:h-[460px] md:h-[520px]"
+                          ? "h-[250px] xs:h-[300px] sm:h-[420px] md:h-[500px]"
+                          : "h-[270px] xs:h-[320px] sm:h-[460px] md:h-[520px]"
                       }`}
                     >
                       <img
@@ -555,21 +555,21 @@ export function ExperienceDetailPage({ mission }: ExperienceDetailPageProps) {
         {/* H. PREVIOUS / NEXT MISSION NAVIGATION */}
         <nav
           aria-label="Mission navigation"
-          className="mt-20 flex flex-col sm:flex-row items-stretch justify-between gap-4 border-t border-border/40 pt-10"
+          className="mt-16 sm:mt-20 flex flex-col sm:flex-row items-stretch justify-between gap-4 border-t border-border/40 pt-8 sm:pt-10"
         >
           <Link
             to="/experience/$experienceId"
             params={{ experienceId: prev.slug }}
-            className="group flex flex-1 items-center gap-4 rounded-xl border border-border/40 bg-surface/30 p-5 transition-all hover:border-border hover:bg-surface/70"
+            className="group flex flex-1 items-center gap-4 rounded-xl border border-border/40 bg-surface/30 p-4 sm:p-5 transition-all hover:border-border hover:bg-surface/70 min-w-0"
           >
             <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-surface-2 text-foreground transition-transform group-hover:-translate-x-1">
               <ArrowLeft size={18} />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="font-mono text-[10px] uppercase text-dim">
                 Previous Mission // {prev.missionNumber}
               </p>
-              <p className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">
+              <p className="text-sm font-bold text-foreground group-hover:text-accent transition-colors truncate">
                 {prev.title}
               </p>
             </div>
@@ -578,13 +578,13 @@ export function ExperienceDetailPage({ mission }: ExperienceDetailPageProps) {
           <Link
             to="/experience/$experienceId"
             params={{ experienceId: next.slug }}
-            className="group flex flex-1 items-center justify-between gap-4 rounded-xl border border-border/40 bg-surface/30 p-5 text-right transition-all hover:border-border hover:bg-surface/70"
+            className="group flex flex-1 items-center justify-between gap-4 rounded-xl border border-border/40 bg-surface/30 p-4 sm:p-5 text-right transition-all hover:border-border hover:bg-surface/70 min-w-0"
           >
-            <div>
+            <div className="min-w-0">
               <p className="font-mono text-[10px] uppercase text-dim">
                 Next Mission // {next.missionNumber}
               </p>
-              <p className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">
+              <p className="text-sm font-bold text-foreground group-hover:text-accent transition-colors truncate">
                 {next.title}
               </p>
             </div>

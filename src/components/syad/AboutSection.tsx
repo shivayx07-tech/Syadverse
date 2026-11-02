@@ -51,7 +51,7 @@ export function AboutSection() {
     visibleEducation.find((item) => item.id === "undergrad") || visibleEducation[1];
 
   return (
-    <section id="about" className="syad-about-section relative px-6 py-28 md:py-40">
+    <section id="about" className="syad-about-section relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden">
       {/* Subtle atmospheric ambient glow */}
       <div
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -206,7 +206,7 @@ export function AboutSection() {
 
         {/* ---------------- 3. CORE PHILOSOPHY (COMPACT SUPPORTING BLOCK) ---------------- */}
         <Reveal className="mb-16 md:mb-20">
-          <div className="syad-philosophy-banner group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-surface/85 via-[#151626]/75 to-surface/60 p-6 md:p-7 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-cyan/30">
+          <div className="syad-philosophy-banner group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-surface/85 via-[#151626]/75 to-surface/60 p-4 sm:p-6 md:p-7 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-cyan/30">
             <div className="flex items-center gap-2 mb-3">
               <Compass size={15} className="text-cyan" />
               <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan font-semibold">
@@ -244,11 +244,11 @@ export function AboutSection() {
           </Reveal>
 
           {/* Main Academic Journey Experience */}
-          <div className="relative pl-10 sm:pl-16 md:pl-20">
+          <div className="relative pl-8 sm:pl-14 md:pl-20">
             {/* Custom Continuous Academic Journey Path (SVG S-Curve) */}
-            <div className="pointer-events-none absolute left-0 top-6 bottom-16 w-10 sm:w-16 md:w-20 overflow-visible flex justify-center">
+            <div className="pointer-events-none absolute left-0 top-6 bottom-16 w-8 sm:w-14 md:w-20 overflow-visible flex justify-center">
               <svg
-                className="h-full w-10 sm:w-16 overflow-visible"
+                className="h-full w-8 sm:w-14 overflow-visible"
                 preserveAspectRatio="none"
                 viewBox="0 0 40 500"
                 aria-hidden="true"
@@ -288,13 +288,13 @@ export function AboutSection() {
                 <Reveal key={schoolRecord.id} className="relative group">
                   {/* Milestone Node 01 */}
                   <div
-                    className={`absolute -left-10 sm:-left-16 md:-left-20 top-6 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border bg-[#090A0D] transition-all duration-300 z-10 ${
+                    className={`absolute -left-8 sm:-left-14 md:-left-20 top-6 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border bg-[#090A0D] transition-all duration-300 z-10 ${
                       activeStage === "school"
                         ? "scale-110 border-magenta shadow-[0_0_20px_rgba(217,186,203,0.55)] text-magenta"
                         : "border-magenta/40 text-magenta/80 shadow-[0_0_12px_rgba(217,186,203,0.2)]"
                     }`}
                   >
-                    <span className="font-mono text-[10px] sm:text-[11px] font-bold">01</span>
+                    <span className="font-mono text-[9px] sm:text-[11px] font-bold">01</span>
                   </div>
 
                   {/* Stage 01 Content Grid: Card on Left (AREA A), Photograph on Right (AREA B) */}
@@ -308,7 +308,7 @@ export function AboutSection() {
                   >
                     {/* Education Card */}
                     <div
-                      className={`syad-academic-card flex flex-col justify-between rounded-3xl border bg-surface/60 p-6 md:p-8 backdrop-blur-md transition-all duration-300 ${
+                      className={`syad-academic-card flex flex-col justify-between rounded-3xl border bg-surface/60 p-4 sm:p-6 md:p-8 backdrop-blur-md transition-all duration-300 ${
                         activeStage === "school"
                           ? "border-magenta/40 bg-surface/80 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(217,186,203,0.2)]"
                           : "border-white/10 hover:border-magenta/30 hover:bg-surface/75"
@@ -391,13 +391,13 @@ export function AboutSection() {
                 <Reveal key={universityRecord.id} className="relative group">
                   {/* Milestone Node 02 */}
                   <div
-                    className={`absolute -left-10 sm:-left-16 md:-left-20 top-6 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border bg-[#090A0D] transition-all duration-300 z-10 ${
+                    className={`absolute -left-8 sm:-left-14 md:-left-20 top-6 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border bg-[#090A0D] transition-all duration-300 z-10 ${
                       activeStage === "university"
                         ? "scale-110 border-cyan shadow-[0_0_24px_rgba(172,189,212,0.65)] text-cyan"
                         : "border-cyan/50 text-cyan/90 shadow-[0_0_14px_rgba(172,189,212,0.3)]"
                     }`}
                   >
-                    <span className="font-mono text-[10px] sm:text-[11px] font-bold">02</span>
+                    <span className="font-mono text-[9px] sm:text-[11px] font-bold">02</span>
                   </div>
 
                   {/* Stage 02 Content Grid: Card on Left (AREA A), Photograph on Right (AREA B) */}
@@ -411,7 +411,7 @@ export function AboutSection() {
                   >
                     {/* Education Card */}
                     <div
-                      className={`syad-academic-card flex flex-col justify-between rounded-3xl border bg-surface/60 p-6 md:p-8 backdrop-blur-md transition-all duration-300 ${
+                      className={`syad-academic-card flex flex-col justify-between rounded-3xl border bg-surface/60 p-4 sm:p-6 md:p-8 backdrop-blur-md transition-all duration-300 ${
                         activeStage === "university"
                           ? "border-cyan/40 bg-surface/80 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8),0_0_25px_-5px_rgba(172,189,212,0.25)]"
                           : "border-white/10 hover:border-cyan/30 hover:bg-surface/75"

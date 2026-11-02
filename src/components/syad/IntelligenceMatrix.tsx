@@ -106,7 +106,7 @@ export function IntelligenceMatrix() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section id="skills" className="relative px-6 py-28 md:py-36 scroll-mt-28">
+    <section id="skills" className="relative px-4 sm:px-6 py-20 md:py-36 scroll-mt-28 overflow-hidden">
       {/* Background ambient lighting */}
       <div
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -117,7 +117,7 @@ export function IntelligenceMatrix() {
 
       <div className="mx-auto max-w-6xl">
         {/* ================= SECTION HEADER ================= */}
-        <Reveal className="mb-14 md:mb-18">
+        <Reveal className="mb-12 md:mb-18">
           <div className="syad-eyebrow-chip inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan">
@@ -137,7 +137,7 @@ export function IntelligenceMatrix() {
         {/* ================= BENTO GRID LAYOUT ================= */}
         <div className="space-y-6 lg:space-y-8">
           {/* Top Row: Two Primary Cards (AI & Machine Learning + Full-Stack Development) */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 items-stretch">
             {PRIMARY_CATEGORIES.map((cat) => {
               const Icon = cat.icon;
               const isHovered = hoveredCard === cat.id;
@@ -147,7 +147,7 @@ export function IntelligenceMatrix() {
                   <div
                     onMouseEnter={() => setHoveredCard(cat.id)}
                     onMouseLeave={() => setHoveredCard(null)}
-                    className={`syad-arsenal-card group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-surface/40 p-7 md:p-9 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-surface/60 ${
+                    className={`syad-arsenal-card group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-surface/40 p-5 sm:p-7 md:p-9 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-surface/60 ${
                       isHovered ? "shadow-2xl" : "shadow-lg"
                     }`}
                     style={{
@@ -204,9 +204,9 @@ export function IntelligenceMatrix() {
 
                     {/* Subtle Context Footer */}
                     {cat.appliedIn && (
-                      <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-muted-foreground/80">
+                      <div className="mt-8 pt-4 border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-muted-foreground/80">
                         <span className="uppercase tracking-wider">APPLIED IN:</span>
-                        <span className="text-foreground/75 truncate max-w-[240px]">
+                        <span className="text-foreground/75 truncate max-w-full">
                           {cat.appliedIn}
                         </span>
                       </div>
@@ -222,7 +222,7 @@ export function IntelligenceMatrix() {
             <div
               onMouseEnter={() => setHoveredCard(SUPPORTING_CATEGORY.id)}
               onMouseLeave={() => setHoveredCard(null)}
-              className={`syad-arsenal-card group relative overflow-hidden rounded-3xl border border-white/10 bg-surface/40 p-7 md:p-9 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-surface/60 ${
+              className={`syad-arsenal-card group relative overflow-hidden rounded-3xl border border-white/10 bg-surface/40 p-5 sm:p-7 md:p-9 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-surface/60 ${
                 hoveredCard === SUPPORTING_CATEGORY.id ? "shadow-2xl" : "shadow-lg"
               }`}
               style={{

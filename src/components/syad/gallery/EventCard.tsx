@@ -62,7 +62,7 @@ export function EventCard({ event, index, onOpenAlbum }: EventCardProps) {
       <div
         className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center ${
           isEven ? "" : "md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1"
-        } ${isResearchInternship ? "bg-[#121422]/60 border border-[#5D6C8C]/25 rounded-3xl p-6 md:p-10 shadow-2xl backdrop-blur-sm" : ""}`}
+        } ${isResearchInternship ? "bg-[#121422]/60 border border-[#5D6C8C]/25 rounded-3xl p-4 sm:p-6 md:p-10 shadow-2xl backdrop-blur-sm" : ""}`}
       >
         {/* TEXT / STORYTELLING PANEL */}
         <div className={`flex flex-col ${isEven ? "md:pr-6" : "md:pl-6"}`}>

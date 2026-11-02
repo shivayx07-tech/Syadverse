@@ -138,7 +138,7 @@ export function ProjectCard({ project, layoutVariant = "compact" }: ProjectCardP
         </div>
 
         {/* Content Area */}
-        <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+        <div className="flex flex-1 flex-col justify-between p-4 sm:p-6 md:p-7 min-w-0">
           <div className="space-y-3">
             {/* Header Metadata */}
             <div className="flex items-center justify-between gap-2 border-b border-border/20 pb-2.5">

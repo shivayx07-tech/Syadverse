@@ -88,7 +88,7 @@ export function CertificatesSection() {
   };
 
   return (
-    <section id="certificates" className="relative px-6 py-24 md:py-36 overflow-hidden">
+    <section id="certificates" className="relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[900px] rounded-full bg-cyan/5 blur-[140px]" />
       <div className="pointer-events-none absolute right-1/4 bottom-1/4 h-[400px] w-[600px] rounded-full bg-violet/5 blur-[120px]" />

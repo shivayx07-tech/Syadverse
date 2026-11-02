@@ -71,7 +71,7 @@ export function ProjectsSection() {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative px-6 py-24 md:py-36 overflow-hidden"
+      className="relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden"
     >
       {/* Cinematic Atmospheric Cosmic Glow */}
       <div

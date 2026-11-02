@@ -70,10 +70,10 @@ export function ExperienceCoverGraphic({
 
   return (
     <div
-      className={`relative flex flex-col justify-between overflow-hidden border border-border/40 bg-gradient-to-br from-surface to-background p-6 transition-all duration-500 ${className}`}
+      className={`relative flex flex-col justify-between overflow-hidden border border-border/40 bg-gradient-to-br from-surface to-background p-4 sm:p-6 transition-all duration-500 ${className}`}
       style={{
         aspectRatio: variant === "hero" ? "16/9" : "16/10",
-        minHeight: variant === "hero" ? "280px" : "200px",
+        minHeight: variant === "hero" ? "240px" : "180px",
       }}
     >
       {/* Background technical grid pattern */}
@@ -87,7 +87,7 @@ export function ExperienceCoverGraphic({
 
       {/* Decorative cosmic alignment ring */}
       <svg
-        className="pointer-events-none absolute -right-12 -bottom-12 h-52 w-52 opacity-20 transition-transform duration-700 ease-out group-hover:scale-110"
+        className="pointer-events-none absolute -right-8 -bottom-8 sm:-right-12 sm:-bottom-12 h-40 w-40 sm:h-52 sm:w-52 opacity-20 transition-transform duration-700 ease-out group-hover:scale-110"
         viewBox="0 0 100 100"
         fill="none"
         aria-hidden
