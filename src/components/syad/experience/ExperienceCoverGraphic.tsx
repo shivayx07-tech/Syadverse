@@ -21,7 +21,7 @@ export function ExperienceCoverGraphic({
 
     return (
       <div
-        className={`relative flex items-center justify-center overflow-hidden ${
+        className={`relative flex w-full min-w-0 max-w-full items-center justify-center overflow-hidden ${
           isContain ? "bg-[#060814]" : "bg-surface"
         } ${className}`}
         style={{
@@ -36,7 +36,7 @@ export function ExperienceCoverGraphic({
           style={
             mission.coverImagePosition ? { objectPosition: mission.coverImagePosition } : undefined
           }
-          className={`h-full w-full ${
+          className={`h-full w-full max-w-full ${
             isContain
               ? "object-contain"
               : "object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -70,7 +70,7 @@ export function ExperienceCoverGraphic({
 
   return (
     <div
-      className={`relative flex flex-col justify-between overflow-hidden border border-border/40 bg-gradient-to-br from-surface to-background p-4 sm:p-6 transition-all duration-500 ${className}`}
+      className={`relative flex w-full min-w-0 max-w-full flex-col justify-between overflow-hidden border border-border/40 bg-gradient-to-br from-surface to-background p-4 sm:p-6 transition-all duration-500 ${className}`}
       style={{
         aspectRatio: variant === "hero" ? "16/9" : "16/10",
         minHeight: variant === "hero" ? "240px" : "180px",

@@ -11,7 +11,7 @@ export function ExperienceArchiveSection() {
   }, [selectedCategory]);
 
   return (
-    <section id="experience" className="relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden">
+    <section id="experience" className="relative px-4 sm:px-6 py-20 md:py-36 overflow-hidden w-full max-w-full">
       {/* Subtle ambient background glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/4 -translate-x-1/2 h-96 w-[min(80vw,64rem)] max-w-5xl rounded-full opacity-20 blur-3xl"
@@ -21,30 +21,30 @@ export function ExperienceArchiveSection() {
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-7xl w-full min-w-0">
         {/* Section Header */}
-        <div className="max-w-3xl">
+        <div className="max-w-3xl min-w-0">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-accent">
             03 / THE MISSION LOG
           </p>
 
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl break-words">
             EVERY EXPERIENCE. A NEW DIMENSION.
           </h2>
 
-          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed break-words">
             A journey through research, technology, leadership, and the moments that shaped my
             growth.
           </p>
 
-          <p className="mt-2 text-xs md:text-sm text-dim italic">
+          <p className="mt-2 text-xs md:text-sm text-dim italic break-words">
             Every experience leaves a trace. Explore the work, the people, the discoveries, and the
             evidence behind my journey.
           </p>
         </div>
 
         {/* Category Filters */}
-        <div className="mt-10 flex flex-wrap items-center gap-2 border-b border-border/30 pb-6">
+        <div className="mt-10 flex flex-wrap items-center gap-2 border-b border-border/30 pb-6 w-full min-w-0 max-w-full">
           {EXPERIENCE_CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
@@ -52,7 +52,7 @@ export function ExperienceArchiveSection() {
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
                 aria-pressed={isSelected}
-                className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`rounded-full px-3.5 sm:px-4 py-1.5 font-mono text-xs transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent ${
                   isSelected
                     ? "border border-accent bg-accent/15 text-foreground shadow-sm font-semibold"
                     : "border border-border/50 bg-surface/50 text-dim hover:border-border hover:text-foreground hover:bg-surface"
@@ -65,14 +65,14 @@ export function ExperienceArchiveSection() {
         </div>
 
         {/* Experience Cards Grid */}
-        <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 gap-5 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full min-w-0 max-w-full">
           {filteredMissions.map((mission) => (
             <ExperienceCard key={mission.id} mission={mission} />
           ))}
         </div>
 
         {/* Bottom Archival Footnote */}
-        <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-border/30 bg-surface/30 px-4 sm:px-6 py-4 text-xs text-dim">
+        <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-border/30 bg-surface/30 px-4 sm:px-6 py-4 text-xs text-dim w-full min-w-0 max-w-full">
           <div className="flex items-center gap-2 font-mono">
             <span className="h-2 w-2 rounded-full bg-cyan/70 animate-pulse" />
             <span>{experienceMissions.length} ARCHIVAL MISSIONS REGISTERED</span>

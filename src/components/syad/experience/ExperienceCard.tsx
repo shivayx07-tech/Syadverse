@@ -20,22 +20,22 @@ export function ExperienceCard({ mission }: ExperienceCardProps) {
   const hasGallery = mission.gallery.length > 0;
 
   return (
-    <article className="h-full">
+    <article className="h-full w-full min-w-0 max-w-full">
       <Link
         to="/experience/$experienceId"
         params={{ experienceId: mission.slug }}
-        className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border/40 bg-surface/60 transition-all duration-500 hover:-translate-y-1 hover:border-border hover:bg-surface/90 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer block text-left"
+        className="group relative flex h-full w-full min-w-0 max-w-full flex-col justify-between overflow-hidden rounded-2xl border border-border/40 bg-surface/60 transition-all duration-500 hover:-translate-y-1 hover:border-border hover:bg-surface/90 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer text-left"
         aria-label={`Explore experience: ${mission.title} at ${mission.organization}`}
       >
         {/* Cover Photograph / Intentional Visual Graphic */}
-        <div className="relative overflow-hidden">
+        <div className="relative w-full min-w-0 max-w-full overflow-hidden">
           <ExperienceCoverGraphic mission={mission} variant="card" />
 
           {/* Category Pill floating on cover (rendered only when overlays over cover are permitted) */}
           {!mission.hideCoverOverlays && (
-            <div className="absolute bottom-3 left-3 z-10 flex flex-wrap items-center gap-1.5">
+            <div className="absolute bottom-3 left-3 z-10 flex max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-1.5">
               <span
-                className="rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-medium backdrop-blur-md"
+                className="max-w-full truncate rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-medium backdrop-blur-md"
                 style={{
                   borderColor: `color-mix(in oklab, ${hueColor} 40%, transparent)`,
                   backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
@@ -49,21 +49,24 @@ export function ExperienceCard({ mission }: ExperienceCardProps) {
         </div>
 
         {/* Content Area */}
-        <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 md:p-6 min-w-0">
-          <div className="min-w-0">
+        <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 md:p-6 w-full min-w-0 max-w-full">
+          <div className="w-full min-w-0 max-w-full">
             {/* Header Row: Organization, Badges & Date */}
-            <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 border-b border-border/20 pb-2.5 min-w-0">
+            <div className="flex w-full min-w-0 max-w-full flex-col gap-1.5 border-b border-border/20 pb-2.5 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex min-w-0 items-center gap-2">
                 {mission.hideCoverOverlays && (
                   <span className="shrink-0 rounded border border-border/40 bg-surface-2 px-1.5 py-0.5 font-mono text-[9px] font-semibold tracking-wider text-foreground">
                     {mission.missionNumber}
                   </span>
                 )}
-                <span className="font-mono text-xs font-semibold text-foreground tracking-wide truncate">
+                <span
+                  className="font-mono text-xs font-semibold text-foreground tracking-wide truncate"
+                  title={mission.organization}
+                >
                   {mission.organization}
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-2 shrink-0">
+              <div className="flex flex-wrap items-center gap-2 min-w-0">
                 {mission.hideCoverOverlays && (
                   <span
                     className="rounded-full border px-2 py-0.5 font-mono text-[9px] font-medium"
@@ -77,34 +80,36 @@ export function ExperienceCard({ mission }: ExperienceCardProps) {
                   </span>
                 )}
                 {dateDisplay && (
-                  <span className="shrink-0 font-mono text-[11px] text-dim">{dateDisplay}</span>
+                  <span className="font-mono text-[11px] text-dim">{dateDisplay}</span>
                 )}
               </div>
             </div>
 
             {/* Title & Role */}
-            <h3 className="mt-3 font-display text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors break-words">
+            <h3 className="mt-3 font-display text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors break-words [overflow-wrap:anywhere]">
               {mission.title}
             </h3>
 
             {mission.role && mission.role !== mission.title && (
-              <p className="mt-1 font-mono text-xs text-accent break-words">{mission.role}</p>
+              <p className="mt-1 font-mono text-xs text-accent break-words [overflow-wrap:anywhere]">
+                {mission.role}
+              </p>
             )}
 
             {mission.researchAssociation && (
-              <p className="mt-1 font-mono text-xs text-dim break-words">
+              <p className="mt-1 font-mono text-xs text-dim break-words [overflow-wrap:anywhere]">
                 Association: <span className="text-foreground">{mission.researchAssociation}</span>
               </p>
             )}
 
             {/* Short Factual Description */}
-            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground break-words">
+            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground break-words [overflow-wrap:anywhere]">
               {mission.shortDescription}
             </p>
           </div>
 
           {/* Bottom Bar: Indicators & Action Indicator */}
-          <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-border/20 pt-3.5 sm:pt-4">
+          <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-border/20 pt-3.5 sm:pt-4 w-full min-w-0 max-w-full">
             {/* Indicators */}
             <div className="flex items-center gap-2 font-mono text-[11px] text-dim">
               {hasGallery && (
